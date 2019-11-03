@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+body
+{
+	background-color: #CFCFCF;
+	font-family: 'Montserrat';
+}
+
+/*--------------------------------------
+				HEADER
+---------------------------------------*/
+#header
+{
+	margin-bottom: 0px;
+	font-family: monospace;
+}
+
+.navbar
+{
+	border-radius: 0px;
+}
+
+/*NavBar estatico*/
+.affix 
+{
+      top: 0px;
+      width: 100%;
+      z-index: 9998 !important;
+}
+.affix + .container, .affix + .nav
+{
+      padding-top: 70px;
+}
+
+/*--------------------------------------
+				MAIN
+---------------------------------------*/
+
+/*Panel de Inicio de sesion y Registro*/
+#iniciarSesionPanel, #registroPanel
+{
+	display: block;
+	text-decoration: none;
+}
+
+
+/*--------------------------------------
+				FOOTER
+---------------------------------------*/
+footer 
+{
+	background-color: #2d2d30;
+	color: #F5F5F5;
+	padding: 32px;
+	
+	margin-top: 50px;
+}
+
+footer a 
+{
+	color: #F5F5F5;
+}
+
+footer a:hover
+{
+	color: #777;
+	text-decoration: none;
+}
+
+/*Todos los modals siempre van encima*/
+.modal
+{
+	z-index: 9999 !important;
+}
+
+/*Fondo del modal se sobrepone a todo menos al mismo modal*/
+.modal-backdrop
+{
+	z-index: 9998 !important;
+}
+
+
+
+
+
+
+
+
+

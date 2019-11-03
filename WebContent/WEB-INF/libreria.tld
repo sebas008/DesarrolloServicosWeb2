@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.0</jspversion>
+	<shortname>custom</shortname>
+	
+	<!-- LISTAR DISTRITOS -->
+	<tag>
+		<name>distritos</name>
+		<tagclass>etiquetas.DistritoTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Lista los distritos</info>
+		
+		<attribute>
+			<name>seleccionar</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>alert_error</name>
+		<tagclass>etiquetas.AlertErrorTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Manda un alert de error</info>
+		
+		<attribute>
+			<name>mensaje</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- TAG DEL MODAL PRODUCTOS -->
+	<tag>
+		<name>modal_producto</name>
+		<tagclass>etiquetas.ModalProductoTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Crea un modal con los datos de un producto</info>
+		
+		<attribute>
+			<name>codigo</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- TAG DE SECCION DE PRODUCTO -->
+	<tag>
+		<name>seccion_producto</name>
+		<tagclass>etiquetas.SeccionProductoTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Crea una seccion para vender el producto</info>
+		
+		<attribute>
+			<name>codigo</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- TAG PARA EL TOTAL DE VENTA -->
+	<tag>
+		<name>formatear_total</name>
+		<tagclass>etiquetas.TotalVentaTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Formatea el total de venta a cadena</info>
+		
+		<attribute>
+			<name>decimal</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- MENSAJE DE STOCK SUPERADO -->
+	<tag>
+		<name>mensaje_warning</name>
+		<tagclass>etiquetas.MensajeTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Envia un mensaje como alerta warning</info>
+		
+		<attribute>
+			<name>mensaje</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- GENERA PRODUCTO RANDOM EN EL INICIO -->
+	<tag>
+		<name>productos_random</name>
+		<tagclass>etiquetas.ProductosRandomTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Genera productos aleatoriamente</info>
+	</tag>
+	
+	<!-- VERIFICAR QUE UN USUARIO ESTA LOGUEADO -->
+	<tag>
+		<name>verificar_login</name>
+		<tagclass>etiquetas.VerificarSesionTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Verifica si un usuario esta logueado</info>
+		
+		<attribute>
+			<name>usuario</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- BUSCAR DISTRITO POR CODIGO -->
+	<tag>
+		<name>buscar_distrito</name>
+		<tagclass>etiquetas.BuscarDistritoTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve un distrito mediante el codigo ingresado</info>
+		
+		<attribute>
+			<name>codigo</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- BUSCAR DISTRITO POR CODIGO -->
+	<tag>
+		<name>alert_JS</name>
+		<tagclass>etiquetas.AlertJSTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Ejecuta un alert JavaScript</info>
+		
+		<attribute>
+			<name>mensaje</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<!-- CANTIDAD DE PRODUCTOS EN CARRITO -->
+	<tag>
+		<name>cantidad_en_carrito</name>
+		<tagclass>etiquetas.EnCarritoTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Muestra la cantidad de productos en el carrito</info>
+	</tag>
+	
+	<!-- ACTIVAR O DESACTIVAR EL BOTON DE BOLETA -->
+	<tag>
+		<name>boton_boleta</name>
+		<tagclass>etiquetas.ActivarBoletaTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Activa el boton de boleta si el usuario tiene ventas registradas</info>
+		
+		<attribute>
+			<name>codUsuario</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

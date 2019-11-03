@@ -1,0 +1,98 @@
+@CHARSET "ISO-8859-1";
+
+#agotadoMsg
+{
+	text-align: center;
+}
+
+/*Seccion por cada categoria*/
+.secciones
+{
+	padding-top: 30px;
+}
+
+/*Enlace con forma de boton success*/
+#mas
+{
+	width: 100%;
+}
+
+/*Boton de agregar al carrito*/
+#btnAgregar, #cerrarModal
+{
+	border: 1px solid #FFFFFF;
+	background-color: #000000 !important;
+	color: #FFFFFF;
+}
+
+#btnAgregar:hover, #cerrarModal:hover
+{
+  	border: 1px solid #000000;
+	background-color: #FFFFFF !important;
+	color: #000000;
+}
+
+.modal-header
+{
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #303030;
+}
+
+.modal-footer
+{
+	background-color: #303030;
+}
+
+/*Imagen del producto en el modal*/
+#imgCont
+{
+	text-align: center;
+}
+#imgProd
+{
+	height: 200px;
+	border: 2px solid black;
+}
+
+/*--------------------------------------
+			SCROLL PRODUCTOS
+---------------------------------------*/
+
+/*Elementos del scrollProductos*/
+#productos .affix 
+{
+    top: 100px;
+    width: 10%;
+    z-index: 9998 !important;
+}
+
+.nav-tabs > li
+{
+    float:none;
+    display:inline-block;
+    *display:inline;
+}
+
+.nav-tabs
+{
+    text-align:center;
+}
+
+/*Ultimos ajustes*/
+hr
+{
+	border-top: 2px solid #107BDA;
+}
+
+.subsub
+{
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+
+
+
+
+

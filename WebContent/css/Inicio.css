@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.carousel-caption h2, .carousel-caption p
+{
+	color: black;
+}
+
+.logo
+{
+	font-size: 80px;
+}
+
+.relleno
+{
+	color: #717171;
+}
+
+.row
+{
+	padding: 0 42px;
+}

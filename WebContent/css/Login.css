@@ -1,0 +1,69 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	background-image: url(../img/fondo.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.panel
+{
+	margin: 100px auto;
+	max-width: 36%;
+	line-height:24px;
+	
+	border: 2px solid #000000;
+	transition: box-shadow 0.5s;
+}
+
+.panel:hover 
+{
+	box-shadow: 5px 0px 40px rgba(0,0,0, .8);
+}
+
+.panel-heading
+{
+	text-align: center;
+	background-color: #000000 !important;
+	padding: 40px;
+}
+
+.alert
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.panel-heading h2{ color:#E4E4E4;}
+.panel-heading h4{ color:#AEAEAE;}
+
+form
+{
+	margin: 30px auto;
+	width: 80%;
+}
+
+.form-control 
+{
+	background: #F2F2F2;
+	border: 2px solid #d4d4d4;
+	border-radius: 5px;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.btn
+{
+	border: 1px solid #FFFFFF;
+	background-color: #000000 !important;
+	color: #FFFFFF;
+}
+
+.btn:hover
+{
+  	border: 1px solid #000000;
+	background-color: #FFFFFF !important;
+	color: #000000;
+}
