@@ -124,7 +124,7 @@ public class MySQLUsuarioDAO implements UsuarioDAO
 		{
 			con = MySQLConexion.getConexion();
 			//insert into tb_usuario values('C001', 'Jose', 'Damaso', 'profe@gmail.com', 'poo', 'D001', 'Av. POO', '927364332', '12645345');
-			String sql = "insert into tb_usuario values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			String sql = "insert into tb_usuario values(?, ?, ?, ?, ?, ?, ?, ?, ?, default);";
 			pst = con.prepareStatement(sql);
 			pst.setString(1, u.getCodigo());
 			pst.setString(2, u.getNombre());
