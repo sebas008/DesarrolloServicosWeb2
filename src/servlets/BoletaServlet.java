@@ -53,7 +53,7 @@ public class BoletaServlet extends HttpServlet {
 		
 		try
 		{
-			double total = 0.0; //calculara el total de la enta y lo imprimira
+			double total = 0.0; //calculara el total de la venta y lo imprimira
 			
 			Document documento = new Document();
 			PdfWriter writer = PdfWriter.getInstance(documento, sos);
