@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
 
 import beans.UsuarioDTO;
-import services.UsuarioService;
 
 /**
  * Servlet implementation class LogueoRegistroServlet
@@ -21,11 +24,16 @@ public class LogueoRegistroServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
+	private Client ladoCliente;
+	private static final String URLServicio = "http://localhost:8080/ApiFerreteriaSaravia/usuarioRest/";
+
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		ladoCliente = ClientBuilder.newClient();
+		
 		String tipo = request.getParameter("tipo");
 		
 		if(tipo.equals("login"))
@@ -38,7 +46,6 @@ public class LogueoRegistroServlet extends HttpServlet
 
 	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		UsuarioService servicio = new UsuarioService();
 		String mensaje = "Error en los datos";
 		
 		String codigo = request.getParameter("codigo");
@@ -70,12 +77,19 @@ public class LogueoRegistroServlet extends HttpServlet
 		
 		if(clave_confirm.equals(clave))
 		{
-			//Se envia 0 como DNI porque no estamos recogiendo el DNI del formulario actualizar
-			mensaje = datosDiferentes(email, telefono, dni, servicio.listado(), codigo);
+			UsuarioDTO[] arregloUsuarios = ladoCliente.target(URLServicio + "listar").request(MediaType.APPLICATION_JSON).get(UsuarioDTO[].class);
+			
+			ArrayList<UsuarioDTO> lista = new ArrayList<>();
+			for (UsuarioDTO item : arregloUsuarios)
+			{
+				lista.add(item);
+			}
+			
+			mensaje = datosDiferentes(email, telefono, dni, lista, codigo);
 			
 			if(mensaje.equals("ok"))
 			{
-				resultado = servicio.actualizar(u);
+				resultado = ladoCliente.target(URLServicio + "actualizar").request(MediaType.TEXT_PLAIN).post(Entity.entity(u, MediaType.APPLICATION_JSON), Integer.class);
 			}
 		}
 		else
@@ -86,8 +100,6 @@ public class LogueoRegistroServlet extends HttpServlet
 		 */
 		if(resultado != 0)
 		{
-			request.getSession().invalidate();
-			
 			HttpSession session = request.getSession();
 			session.setAttribute("usuario", u);
 			
@@ -102,11 +114,9 @@ public class LogueoRegistroServlet extends HttpServlet
 
 	private void registro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		UsuarioService servicio = new UsuarioService();
 		String mensaje = "Error en los datos";
 		
-		//Generar el codigo del usuario
-		String codigo = servicio.ultimoCodUsuario();
+		String codigo = null;
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		String email = request.getParameter("email");
@@ -135,11 +145,19 @@ public class LogueoRegistroServlet extends HttpServlet
 		
 		if(clave_confirm.equals(clave))
 		{
-			mensaje = datosDiferentes(email, telefono, dni, servicio.listado(), codigo);
+			UsuarioDTO[] arregloUsuarios = ladoCliente.target(URLServicio + "listar").request(MediaType.APPLICATION_JSON).get(UsuarioDTO[].class);
+			
+			ArrayList<UsuarioDTO> lista = new ArrayList<>();
+			for (UsuarioDTO item : arregloUsuarios)
+			{
+				lista.add(item);
+			}
+			
+			mensaje = datosDiferentes(email, telefono, dni, lista, codigo);
 			
 			if(mensaje.equals("ok"))
 			{
-				resultado = servicio.registrar(u);
+				resultado = ladoCliente.target(URLServicio + "registrar").request(MediaType.TEXT_PLAIN).post(Entity.entity(u, MediaType.APPLICATION_JSON), Integer.class);
 			}
 		}
 		else
@@ -176,8 +194,11 @@ public class LogueoRegistroServlet extends HttpServlet
 		String email = request.getParameter("email");
 		String clave = request.getParameter("clave");
 		
-		UsuarioService servicio = new UsuarioService();
-		UsuarioDTO u = servicio.login(email, clave);
+		UsuarioDTO u = new UsuarioDTO();
+		u.setEmail(email);
+		u.setClave(clave);
+		
+		u = ladoCliente.target(URLServicio + "login").request(MediaType.APPLICATION_JSON).post(Entity.entity(u, MediaType.APPLICATION_JSON), UsuarioDTO.class);
 		
 		if(u == null)
 		{
