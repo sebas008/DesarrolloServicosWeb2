@@ -195,15 +195,3 @@ public class MySQLVentaDAO implements VentaDAO
 		return ultimo;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

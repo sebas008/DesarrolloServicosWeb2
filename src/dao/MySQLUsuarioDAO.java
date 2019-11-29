@@ -250,29 +250,5 @@ public class MySQLUsuarioDAO implements UsuarioDAO
 	}
 }
 
-/*
- * try
-		{
-			
-		}
-		catch(Exception e)
-		{
-			System.out.println("Error al loguear");
-		}
-		finally
-		{
-			try
-			{
-				if(con != null) con.close();
-				if(pst != null) pst.close();
-			}
-			catch(Exception e)
-			{
-				System.out.println("Error al cerrar");
-			}
-		}
- */
-
-
 
 

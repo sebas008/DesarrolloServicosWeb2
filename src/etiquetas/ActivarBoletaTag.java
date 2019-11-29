@@ -5,9 +5,10 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 
 import beans.VentaDTO;
-import services.VentaService;
 
 public class ActivarBoletaTag extends TagSupport
 {
@@ -19,7 +20,7 @@ public class ActivarBoletaTag extends TagSupport
 		try 
 		{
 			JspWriter out = pageContext.getOut();
-			VentaDTO ven = new VentaService().ultimaVentaXUsuario(codUsuario);
+			VentaDTO ven = ClientBuilder.newClient().target("http://localhost:8080/ApiFerreteriaSaravia/ventaRest/ultimaVentaXUsuario/" + codUsuario).request(MediaType.APPLICATION_JSON).get(VentaDTO.class);
 			
 			if(ven.getNumVenta() != null)
 			{

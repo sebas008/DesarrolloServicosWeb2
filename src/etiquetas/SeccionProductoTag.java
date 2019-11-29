@@ -5,9 +5,10 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 
 import beans.ProductoDTO;
-import services.ProductoService;
 
 public class SeccionProductoTag extends TagSupport
 {
@@ -20,7 +21,7 @@ public class SeccionProductoTag extends TagSupport
 		try 
 		{
 			JspWriter out = pageContext.getOut();
-			ProductoDTO p = new ProductoService().buscar(codigo);
+			ProductoDTO p = ClientBuilder.newClient().target("http://localhost:8080/ApiFerreteriaSaravia/productoRest/buscar/" + codigo).request(MediaType.APPLICATION_JSON).get(ProductoDTO.class);
 			
 			if(p.getStockAct() > 0)
 			{
