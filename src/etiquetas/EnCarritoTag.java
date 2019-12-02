@@ -21,6 +21,7 @@ public class EnCarritoTag extends TagSupport
 			JspWriter out = pageContext.getOut();
 			HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
 			
+			@SuppressWarnings("unchecked")
 			ArrayList<CarritoDTO> productos = (ArrayList<CarritoDTO>)request.getSession().getAttribute("carrito");
 			int cantProductos = productos.size();
 			

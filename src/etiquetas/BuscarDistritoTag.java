@@ -5,9 +5,10 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 
 import beans.DistritoDTO;
-import services.DistritoService;
 
 public class BuscarDistritoTag extends TagSupport
 {
@@ -22,7 +23,7 @@ public class BuscarDistritoTag extends TagSupport
 			
 			if(codigo != "")
 			{
-				DistritoDTO d = new DistritoService().buscar(codigo);
+				DistritoDTO d = ClientBuilder.newClient().target("http://localhost:8080/ApiFerreteriaSaravia/distritoRest/buscar/" + codigo).request(MediaType.APPLICATION_JSON).get(DistritoDTO.class);
 				out.println(d.getNombre());
 			}
 			else

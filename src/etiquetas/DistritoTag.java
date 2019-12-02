@@ -1,14 +1,14 @@
 package etiquetas;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 
 import beans.DistritoDTO;
-import services.DistritoService;
 
 public class DistritoTag extends TagSupport
 {
@@ -22,17 +22,16 @@ public class DistritoTag extends TagSupport
 		{
 			JspWriter out = pageContext.getOut();
 			
-			DistritoService servicio = new DistritoService();
-			ArrayList<DistritoDTO> listado = servicio.lista();
+			DistritoDTO[] distritos = ClientBuilder.newClient().target("http://localhost:8080/ApiFerreteriaSaravia/distritoRest/listar").request(MediaType.APPLICATION_JSON).get(DistritoDTO[].class);
 			
-			for(DistritoDTO d : listado)
+			for(DistritoDTO d : distritos)
 			{
 				if(d.getCodigo().equals(seleccionar))
 					out.println("<option value='" + d.getCodigo() + "' selected>" + d.getNombre() + "</option>");
 				else
 					out.println("<option value='" + d.getCodigo() + "'>" + d.getNombre() + "</option>");
 			}
-		} 
+		}
 		catch (IOException e) 
 		{
 			throw new JspException("Error: " + e.getMessage());
