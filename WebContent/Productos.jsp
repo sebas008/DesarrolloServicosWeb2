@@ -87,11 +87,11 @@
 					<div class="row">
 						<nav class="col-sm-3" id="scrollProductos">
 							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="250">
-								<li><a href="#section1">Cable</a></li>
-								<li><a href="#section2">Focos</a></li>
-								<li><a href="#section3">Toma corrientes</a></li>
-								<li><a href="#section4">Extensiones</a></li>
-								<li><a href="#section5">Enchufes</a></li>
+								<li><a class="linkProductos" href="#section1">Cable</a></li>
+								<li><a class="linkProductos" href="#section2">Focos</a></li>
+								<li><a class="linkProductos" href="#section3">Toma corrientes</a></li>
+								<li><a class="linkProductos" href="#section4">Extensiones</a></li>
+								<li><a class="linkProductos" href="#section5">Enchufes</a></li>
 							</ul>
 						</nav>
 						
@@ -187,11 +187,11 @@
 					<div class="row">
 						<nav class="col-sm-3" id="scrollProductos">
 							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="250">
-								<li><a href="#section6">Alicates</a></li>
-								<li><a href="#section7">Brochas</a></li>
-								<li><a href="#section8">Linternas</a></li>
-								<li><a href="#section9">Martillos</a></li>
-								<li><a href="#section10">Taladros</a></li>
+								<li><a class="linkProductos" href="#section6">Alicates</a></li>
+								<li><a class="linkProductos" href="#section7">Brochas</a></li>
+								<li><a class="linkProductos" href="#section8">Linternas</a></li>
+								<li><a class="linkProductos" href="#section9">Martillos</a></li>
+								<li><a class="linkProductos" href="#section10">Taladros</a></li>
 							</ul>
 						</nav>
 						
@@ -291,11 +291,11 @@
 					<div class="row">
 						<nav class="col-sm-3" id="scrollProductos">
 							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="250">
-								<li><a href="#section11">Aerosol</a></li>
-								<li><a href="#section12">Cocina</a></li>
-								<li><a href="#section13">Detergentes</a></li>
-								<li><a href="#section14">Insecticidas</a></li>
-								<li><a href="#section15">Utensilios</a></li>
+								<li><a class="linkProductos" href="#section11">Aerosol</a></li>
+								<li><a class="linkProductos" href="#section12">Cocina</a></li>
+								<li><a class="linkProductos" href="#section13">Detergentes</a></li>
+								<li><a class="linkProductos" href="#section14">Insecticidas</a></li>
+								<li><a class="linkProductos" href="#section15">Utensilios</a></li>
 							</ul>
 						</nav>
 						
@@ -391,11 +391,11 @@
 					<div class="row">
 						<nav class="col-sm-3" id="scrollProductos">
 							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="250">
-								<li><a href="#section16">Barniz</a></li>
-								<li><a href="#section17">Esmalte</a></li>
-								<li><a href="#section18">Latex</a></li>
-								<li><a href="#section19">Lijas</a></li>
-								<li><a href="#section20">Temples</a></li>
+								<li><a class="linkProductos" href="#section16">Barniz</a></li>
+								<li><a class="linkProductos" href="#section17">Esmalte</a></li>
+								<li><a class="linkProductos" href="#section18">Latex</a></li>
+								<li><a class="linkProductos" href="#section19">Lijas</a></li>
+								<li><a class="linkProductos" href="#section20">Temples</a></li>
 							</ul>
 						</nav>
 						
@@ -495,11 +495,11 @@
 					<div class="row">
 						<nav class="col-sm-3" id="scrollProductos">
 							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="250">
-								<li><a href="#section21">Conexiones</a></li>
-								<li><a href="#section22">Griferia</a></li>
-								<li><a href="#section23">Lavaderos</a></li>
-								<li><a href="#section24">Pegamento</a></li>
-								<li><a href="#section25">Tuberia</a></li>
+								<li><a class="linkProductos" href="#section21">Conexiones</a></li>
+								<li><a class="linkProductos" href="#section22">Griferia</a></li>
+								<li><a class="linkProductos" href="#section23">Lavaderos</a></li>
+								<li><a class="linkProductos" href="#section24">Pegamento</a></li>
+								<li><a class="linkProductos" href="#section25">Tuberia</a></li>
 							</ul>
 						</nav>
 						

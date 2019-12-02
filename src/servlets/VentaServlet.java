@@ -29,8 +29,8 @@ public class VentaServlet extends HttpServlet
 	private static final long serialVersionUID = 1L;
 
 	private Client ladoCliente;
-	private static final String URLServicioVenta = "http://localhost:8080/ApiFerreteriaSaravia/ventaRest/";
-	private static final String URLServicioProducto = "http://localhost:8080/ApiFerreteriaSaravia/productoRest/";
+	private static final String URLServicioVenta = "http://localhost:8080/ApiFerreteriaSaravia/ventaRest";
+	private static final String URLServicioProducto = "http://localhost:8080/ApiFerreteriaSaravia/productoRest";
 	
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
@@ -75,12 +75,14 @@ public class VentaServlet extends HttpServlet
 		ArrayList<CarritoDTO> carrito = (ArrayList<CarritoDTO>) request.getSession().getAttribute("carrito");
 		double totalVenta = (double) request.getSession().getAttribute("totalVenta");
 
+		v.setDetalle(carrito);
+		
 		// Realizar la venta
 		int ok = 0;
 
 		if (!carrito.isEmpty())
 		{
-			ok = ladoCliente.target(URLServicioVenta + "transaccion").request(MediaType.TEXT_PLAIN).post(Entity.entity(v, MediaType.APPLICATION_JSON), Integer.class);
+			ok = ladoCliente.target(URLServicioVenta + "/transaccion").request(MediaType.TEXT_PLAIN).post(Entity.entity(v, MediaType.APPLICATION_JSON), Integer.class);
 		}
 		else
 		{
@@ -119,7 +121,7 @@ public class VentaServlet extends HttpServlet
 		String codProducto = request.getParameter("codigo");
 
 		// Buscar el producto
-		ProductoDTO p = ladoCliente.target(URLServicioProducto + "buscar/" + codProducto).request(MediaType.APPLICATION_JSON).get(ProductoDTO.class);
+		ProductoDTO p = ladoCliente.target(URLServicioProducto + "/buscar/" + codProducto).request(MediaType.APPLICATION_JSON).get(ProductoDTO.class);
 
 		// Obtener los datos globales de session
 		@SuppressWarnings("unchecked")
@@ -201,7 +203,7 @@ public class VentaServlet extends HttpServlet
 		double totalVenta = (double) request.getSession().getAttribute("totalVenta");
 
 		// Editando
-		ProductoDTO p = ladoCliente.target(URLServicioProducto + "buscar/" + codigo).request(MediaType.APPLICATION_JSON).get(ProductoDTO.class);
+		ProductoDTO p = ladoCliente.target(URLServicioProducto + "/buscar/" + codigo).request(MediaType.APPLICATION_JSON).get(ProductoDTO.class);
 		if (p.getStockAct() >= newCantidad)
 		{
 			// Se obtiene el producto mediante su indice
