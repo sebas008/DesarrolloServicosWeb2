@@ -3,13 +3,14 @@ package beans;
 public class UsuarioDTO
 {
 	String codigo, nombre, apellido, email, clave, codDistrito, direccion, telefono, dni;
-	boolean administrador;
+	boolean cliente;
 
 	/*
 	 * Adicionales
 	 */
 	double totalComprado;
-	
+	int cantidadComprado;
+
 	/*
 	 * Get y Set
 	 */
@@ -102,15 +103,15 @@ public class UsuarioDTO
 	{
 		this.dni = dni;
 	}
-
-	public boolean isAdministrador()
+	
+	public boolean isCliente()
 	{
-		return administrador;
+		return cliente;
 	}
 
-	public void setAdministrador(boolean administrador)
+	public void setCliente(boolean cliente)
 	{
-		this.administrador = administrador;
+		this.cliente = cliente;
 	}
 
 	public double getTotalComprado()
@@ -121,5 +122,14 @@ public class UsuarioDTO
 	public void setTotalComprado(double totalComprado)
 	{
 		this.totalComprado = totalComprado;
+	}
+	public int getCantidadComprado()
+	{
+		return cantidadComprado;
+	}
+
+	public void setCantidadComprado(int cantidadComprado)
+	{
+		this.cantidadComprado = cantidadComprado;
 	}
 }

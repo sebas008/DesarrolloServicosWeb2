@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+/* NavTabs de Cliente-Producto */
+.nav-tabs > li
+{
+    float:none;
+    display:inline-block;
+    *display:inline;
+}
+
+.nav-tabs
+{
+    text-align:center;
+}
+
+/* Modal de Ventas */
+.modal
+{
+	z-index: 9999 !important;
+}
+
+.modal-header
+{
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #303030;
+}
+
+.modal-footer
+{
+	background-color: #303030;
+}
+
+#btnActualizar, #cerrarModal
+{
+	border: 1px solid #FFFFFF;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+#btnActualizar:hover, #cerrarModal:hover
+{
+  	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+}

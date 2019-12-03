@@ -2,11 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<%@page import = "java.util.*" %>    
+<%@page import = "java.util.*" %>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="custom" %>
 
 <!-- Verificar la sesion -->
 <custom:verificar_login usuario="${usuario}"/>
+
+<%
+	boolean esCliente = ((UsuarioDTO)request.getSession().getAttribute("usuario")).isCliente();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -50,17 +54,38 @@
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Inicio</a></li>
-						<li><a href="Productos.jsp">Productos</a></li>
+						<%
+							if(esCliente)
+							{
+						%>
+								<li><a href="Productos.jsp">Productos</a></li>
+						<%
+							}
+						%>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="Cuenta.jsp" data-toggle="tooltip" title="Mi cuenta">
-								<span class="glyphicon glyphicon-user"></span> ${usuario.nombre} ${usuario.apellido}</a></li>
-						<li><a href="Carrito.jsp" data-toggle="tooltip" title="Carrito de compras">
-								<span class="glyphicon glyphicon-shopping-cart"></span> Carrito <custom:cantidad_en_carrito/></a></li>
-						<li><a href="HistorialServlet" data-toggle="tooltip" title="Mi historial de compras">
-								<span class="glyphicon glyphicon-list-alt"></span> Historial</a></li>
+						<%
+							if(esCliente)
+							{
+						%>
+								<li><a href="Cuenta.jsp" data-toggle="tooltip" title="Mi cuenta">
+									<span class="glyphicon glyphicon-user"></span> ${usuario.nombre} ${usuario.apellido}</a></li>
+								<li><a href="Carrito.jsp" data-toggle="tooltip" title="Carrito de compras">
+									<span class="glyphicon glyphicon-shopping-cart"></span> Carrito <custom:cantidad_en_carrito/></a></li>
+								<li><a href="HistorialServlet" data-toggle="tooltip" title="Mi historial de compras">
+									<span class="glyphicon glyphicon-list-alt"></span> Historial</a></li>
+						<%
+							}
+							else
+							{
+						%>
+								<li><a href="EstadisticaServelt" data-toggle="tooltip" title="Estadísticas de la Ferretería">
+									<span class="glyphicon glyphicon-signal"></span> Estadísticas</a></li>
+						<%
+							}
+						%>
 						<li><a href="salir" data-toggle="tooltip" title="Cerrar sesion">
-								<span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+							<span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
 					</ul>
 				</div>
 			</div>
@@ -132,24 +157,31 @@
 			
 			<br><br><br><br><br>
 			
-			<div class="row">
-				<custom:seccion_producto codigo="${random0}"/>
-				<custom:seccion_producto codigo="${random1}"/>
-				<custom:seccion_producto codigo="${random2}"/>
-				
-				<custom:modal_producto codigo="${random0}"/>
-				<custom:modal_producto codigo="${random1}"/>
-				<custom:modal_producto codigo="${random2}"/>
-			</div>
-			<div class="row">
-				<custom:seccion_producto codigo="${random3}"/>
-				<custom:seccion_producto codigo="${random4}"/>
-				<custom:seccion_producto codigo="${random5}"/>
-				
-				<custom:modal_producto codigo="${random3}"/>
-				<custom:modal_producto codigo="${random4}"/>
-				<custom:modal_producto codigo="${random5}"/>
-			</div>
+			<%
+				if(esCliente)
+				{
+			%>
+					<div class="row">
+						<custom:seccion_producto codigo="${random0}"/>
+						<custom:seccion_producto codigo="${random1}"/>
+						<custom:seccion_producto codigo="${random2}"/>
+						
+						<custom:modal_producto codigo="${random0}"/>
+						<custom:modal_producto codigo="${random1}"/>
+						<custom:modal_producto codigo="${random2}"/>
+					</div>
+					<div class="row">
+						<custom:seccion_producto codigo="${random3}"/>
+						<custom:seccion_producto codigo="${random4}"/>
+						<custom:seccion_producto codigo="${random5}"/>
+						
+						<custom:modal_producto codigo="${random3}"/>
+						<custom:modal_producto codigo="${random4}"/>
+						<custom:modal_producto codigo="${random5}"/>
+					</div>
+			<%
+				}
+			%>
 		</div>
 		
 		<!--------------------------------------------------------------------------------------------->
